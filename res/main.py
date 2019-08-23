@@ -1,6 +1,6 @@
 # import base64
 # f=open('723.png','rb')
-# ls_f=base64.b64encode(f.read()) 
+# ls_f=base64.b64encode(f.read())
 # f.close()
 # print(ls_f)
 
@@ -14,6 +14,7 @@
 import time
 import base64
 from AppKit import NSPasteboard, NSPasteboardTypePNG, NSPasteboardTypeTIFF
+
 
 def get_paste_img_file():
     # print("准备执行")

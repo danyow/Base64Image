@@ -3,8 +3,32 @@
 	"displayName": "base64image",
 	"description": "将图片Base64",
 	"version": "0.0.1",
+	"publisher": "danyow",
+	"author": {
+		"name": "danyow",
+		"email": "i.zuucol@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/danyow/base64image"
+	},
+	"homepage": "https://github.com/danyow/base64image/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/danyow/base64image/issues"
+	},
+	"icon": "res/icon.png",
+	"galleryBanner": {
+		"color": "#252526",
+		"theme": "dark"
+	},
+	"keywords": [
+		"base64",
+		"image",
+		"markdown",
+		"paste"
+	],
 	"engines": {
-		"vscode": "^1.37.0"
+		"vscode": "^1.0.0"
 	},
 	"categories": [
 		"Other"

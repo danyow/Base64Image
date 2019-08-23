@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as moment from 'moment';
 
-export class logger {
+export class Logger {
     static channel: vscode.OutputChannel;
     static log(message: any) {
         if (this.channel) {
