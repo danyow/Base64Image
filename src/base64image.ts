@@ -48,24 +48,17 @@ export class Base64Image {
         if (editor) {
 
             let current = editor.selection;
-            let documentName = "image_"; //editor.document.fileName;
-            let time = moment().valueOf();
-            // let time = moment().format("YY-MM-DD-HH:mm:ss");
-            let pngName = documentName + time;
+            // 文件名|年-月-日_时:分:秒 
+            // 秒删除!
+            let pngName = "${TM_FILENAME_BASE}|${CURRENT_YEAR_SHORT}-${CURRENT_MONTH}-${CURRENT_DATE}_${CURRENT_HOUR}:${CURRENT_MINUTE}";
             let last = new vscode.Position(editor.document.lineCount, 0);
-            editor.viewColumn
+            let currentSnippet = new vscode.SnippetString(`!` + '[${TM_LINE_NUMBER}]' + `[` + pngName + `]`);
+            let lastSnippet = new vscode.SnippetString(`\n[` + pngName + `]:data:image/png;base64,` + dataUrl); 
             switch (editor.document.languageId) {
                 case "markdown":
-                    editor.edit(edit => {
-                        let currentString = `!` + `[` + pngName + `]` + `[` + pngName + `]`;
-                        let lastString = `\n[` + pngName + `]:data:image/png;base64,` + dataUrl;
-                        if (current.isEmpty) {
-                            edit.insert(current.start, currentString);
-                        } else {
-                            edit.replace(current, currentString);
-                        }
-                        edit.insert(last, lastString);
-                    });
+                    // 先插入最底下的
+                    editor.insertSnippet(lastSnippet, last);
+                    editor.insertSnippet(currentSnippet, current);
                     break;
                 default:
                     Logger.showErrorMessage("暂时不支持其他文档!");

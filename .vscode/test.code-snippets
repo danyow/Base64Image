@@ -15,4 +15,8 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"#ifndef … #define … #endif":{
+		"prefix": "def",
+		"body": "#ifndef ${CLIPBOARD}\n#define ${CURRENT_YEAR} ${2:value}\n#endif\t// ${CURRENT_YEAR}"
+	  },
 }
