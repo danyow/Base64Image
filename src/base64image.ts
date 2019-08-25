@@ -16,7 +16,7 @@ export class Base64Image {
                 let pyscript = spawn('python3', [scriptPath]);
         
                 pyscript.on('close', function(e) {
-                    if (e == 0) {
+                    if (e === 0) {
                         Logger.showInformationMessage("Python脚本执行成功!");
                     } else {
                         Logger.showErrorMessage("Python脚本执行失败!");
@@ -29,7 +29,7 @@ export class Base64Image {
         
                 pyscript.stdout.on('data', function (data: Buffer) {
                     let result = data.toString().trim();
-                    if (result == "no image") {
+                    if (result === "no image") {
                         Logger.showErrorMessage("当前剪切板里面没有图片!");
                         return;
                     }
