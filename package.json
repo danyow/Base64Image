@@ -61,7 +61,7 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"dependencies": {
-		"moment": "^2.14.1"
+		"moment": "^2.29.2"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
